@@ -71,7 +71,7 @@ export default function CatalogoPage() {
             setProductosFiltrados(productos.filter(producto => producto.categorias.some(value => value.categoria?.nombre.toLowerCase() == cat.toLowerCase())))
     }, [params])
     return (
-        <div className="min-h-screen  text-slate-900 relative font-inter">
+        <div className="min-h-screen mt-24 text-slate-900 relative font-inter">
 
 
             <div className="relative z-20">
@@ -105,7 +105,7 @@ export default function CatalogoPage() {
 
                         <h1 className="text-3xl md:text-4xl font-bold mb-3">Catálogo de Productos</h1>
                         <p className="text-base">
-                            Descubre nuestra amplia gama de aceites y líquidos para todas tus necesidades.
+                         Descubre una amplia selección de productos, desde audífonos inalámbricos hasta equipos de audio profesional.
                         </p>
                     </div>
                     {/* Search and Filters Bar */}
