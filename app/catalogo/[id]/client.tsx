@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { Check, Heart, Phone, Share2, Truck, Shield, Headphones, Volume2, Mic } from "lucide-react"
+import { Check, Heart, Phone, Share2, Truck, Shield, Headphones, Volume2, Mic, ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -115,9 +115,9 @@ export default function ProductDetailPage({ producto }: Props) {
                     <div className="mb-16">
                         <Card className="bg-white/90 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl overflow-hidden">
                             <CardContent className="p-0">
-                                <div className="grid lg:grid-cols-2 gap-0">
-                                    <div className="relative  w-full  bg-gray-50">
+                                <div className="grid lg:grid-cols-2 gap-0 ">
 
+                                    <div className="p-5">
                                         <Image
                                             src={
                                                 currentImageUrl || "/placeholder.svg?height=600&width=600&query=premium headphones studio setup"
@@ -125,27 +125,9 @@ export default function ProductDetailPage({ producto }: Props) {
                                             alt={selectedVariant?.titulo || producto.titulo}
                                             width={200}
                                             height={200}
-                                            className="object-cover w-full h-auto"
+                                            className="  w-full max-w-sm mx-auto"
                                         />
-
-                                        {producto.imagenes.length > 1 && (
-                                            <>
-                                                <button
-                                                    onClick={prevImage}
-                                                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 cursor-pointer backdrop-blur-sm text-gray-700 p-4 rounded-full hover:bg-white transition-all shadow-lg"
-                                                >
-                                                    ←
-                                                </button>
-                                                <button
-                                                    onClick={nextImage}
-                                                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 cursor-pointer backdrop-blur-sm text-gray-700 p-4 rounded-full hover:bg-white transition-all shadow-lg"
-                                                >
-                                                    →
-                                                </button>
-                                            </>
-                                        )}
-
-                                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
+                                        <div className="flex justify-center my-5 gap-3">
                                             {producto.imagenes.map((_, index) => (
                                                 <button
                                                     key={index}
@@ -158,7 +140,26 @@ export default function ProductDetailPage({ producto }: Props) {
                                                 />
                                             ))}
                                         </div>
+                                        {producto.imagenes.length > 1 && (
+                                            <div className="flex justify-between px-4">
+                                                <Button
+                                                    onClick={prevImage}
+
+                                                >
+                                                    <ArrowLeftIcon />
+                                                </Button>
+                                                <Button
+                                                    onClick={nextImage}
+
+                                                >
+                                                    <ArrowRightIcon />
+                                                </Button>
+                                            </div>
+                                        )}
+
+
                                     </div>
+
 
                                     <div className="p-12 lg:p-16 space-y-6">
                                         <div>
