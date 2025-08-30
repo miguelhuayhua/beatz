@@ -45,7 +45,7 @@ export default function ProductCard({ producto }: Props) {
       </Button>
 
       <CardHeader className="p-0">
-        <div className="relative w-full h-auto overflow-hidden bg-gradient-to-br from-blue-100/50 to-teal-100/50">
+        <div className="relative w-full h-auto overflow-hidden ">
           <Image
             src={
               producto.imagenes.find((img) => img.orden === 0)?.url ||
@@ -56,7 +56,7 @@ export default function ProductCard({ producto }: Props) {
             alt={producto.titulo}
             width={300}
             height={200}
-            className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-110"
+            className="object-contain bg-gradient-to-r from-primary/10 backdrop-blur-md to-secondary/10 aspect-square transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
