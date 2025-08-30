@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { Publicacion } from "@/types/main"
 import Image from "next/image"
-import { Eye, Heart, Droplets, Gauge } from "lucide-react"
+import { Eye, Heart, Droplets, Gauge, Check } from "lucide-react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -114,9 +114,9 @@ export default function ProductCard({ producto }: Props) {
 
         {/* Key Features */}
         <div className="space-y-2 mb-4">
-          {producto.caracteristicas.slice(0, 2).map((caracteristica, j) => (
+          {producto.caracteristicas.map((caracteristica, j) => (
             <div key={j} className="flex items-center text-xs bg-teal-50 px-2 py-1 rounded-md">
-              <Gauge className="w-3 h-3 text-teal-600 mr-2 flex-shrink-0" />
+              <Check className="w-3 h-3 text-teal-600 mr-2 flex-shrink-0" />
               <span className="text-teal-800">
                 <span className="font-medium">{caracteristica.nombre}:</span> {caracteristica.valor}
               </span>
