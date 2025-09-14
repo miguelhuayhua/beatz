@@ -97,7 +97,7 @@ export default function ProductDetailPage({ producto }: Props) {
 
 
             <div className="relative z-20 pt-20">
-                <div className="container mx-auto px-8 py-12">
+                <div className=" mx-auto px-8 py-12">
                     <div className="flex items-center space-x-3 text-xs bg-white/80 backdrop-blur-xl px-8 py-6 rounded-full border border-gray-200 w-fit shadow-lg">
                         <Link href="/" className="hover:text-primary transition-colors font-medium text-gray-600">
                             Inicio
@@ -111,57 +111,53 @@ export default function ProductDetailPage({ producto }: Props) {
                     </div>
                 </div>
 
-                <section className="container mx-auto px-8 ">
+                <section className=" px-4 sm:px-10 md:px-18 ">
                     <div className="mb-16">
-                        <Card className="bg-white/90 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl overflow-hidden">
-                            <CardContent className="p-0">
-                                <div className="grid lg:grid-cols-2 gap-0 ">
-
-                                    <div className="p-5">
-                                        <Image
-                                            src={
-                                                currentImageUrl || "/placeholder.svg?height=600&width=600&query=premium headphones studio setup"
-                                            }
-                                            alt={selectedVariant?.titulo || producto.titulo}
-                                            width={200}
-                                            height={200}
-                                            className="  w-full max-w-sm mx-auto"
+                        <div className="grid lg:grid-cols-2 gap-5 px-2 md:px-0 lg:px-20">
+                            <div className="px-14 sm:px-32 mb-8 lg:px-12 xl:px-24 ">
+                                <Image
+                                    src={
+                                        currentImageUrl || "/placeholder.svg?height=600&width=600&query=premium headphones studio setup"
+                                    }
+                                    alt={selectedVariant?.titulo || producto.titulo}
+                                    width={200}
+                                    height={200}
+                                    className="w-full rounded"
+                                />
+                                <div className="flex justify-center my-5 gap-3">
+                                    {producto.imagenes.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => {
+                                                setCurrentImageIndex(index)
+                                                setCurrentImageUrl(producto.imagenes[index]?.url)
+                                            }}
+                                            className={`w-3 h-3 rounded-full transition-all ${index === currentImageIndex ? "bg-primary" : "bg-gray-300"
+                                                }`}
                                         />
-                                        <div className="flex justify-center my-5 gap-3">
-                                            {producto.imagenes.map((_, index) => (
-                                                <button
-                                                    key={index}
-                                                    onClick={() => {
-                                                        setCurrentImageIndex(index)
-                                                        setCurrentImageUrl(producto.imagenes[index]?.url)
-                                                    }}
-                                                    className={`w-3 h-3 rounded-full transition-all ${index === currentImageIndex ? "bg-primary" : "bg-gray-300"
-                                                        }`}
-                                                />
-                                            ))}
-                                        </div>
-                                        {producto.imagenes.length > 1 && (
-                                            <div className="flex justify-between px-4">
-                                                <Button
-                                                    onClick={prevImage}
+                                    ))}
+                                </div>
+                                {producto.imagenes.length > 1 && (
+                                    <div className="flex justify-between ">
+                                        <Button
+                                            onClick={prevImage}
 
-                                                >
-                                                    <ArrowLeftIcon />
-                                                </Button>
-                                                <Button
-                                                    onClick={nextImage}
-
-                                                >
-                                                    <ArrowRightIcon />
-                                                </Button>
-                                            </div>
-                                        )}
-
-
+                                        >
+                                            <ArrowLeftIcon />
+                                        </Button>
+                                        <Button
+                                            onClick={nextImage}
+                                        >
+                                            <ArrowRightIcon />
+                                        </Button>
                                     </div>
+                                )}
+                            </div>
 
+                            <Card className="bg-white/90 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl overflow-hidden h-fit">
+                                <CardContent className="p-0 h-fit">
 
-                                    <div className="p-12 lg:p-16 space-y-6">
+                                    <div className="p-10 space-y-6">
                                         <div>
                                             {
                                                 producto.categorias.map(({ categoria }) => (
@@ -239,12 +235,13 @@ export default function ProductDetailPage({ producto }: Props) {
                                             </Button>
                                         </div>
                                     </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+                                </CardContent>
+                            </Card>
+                        </div>
+
                     </div>
 
-                    <div className="mb-16">
+                    <div className="mb-16 ">
                         <Card className="bg-white/90 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl">
                             <CardContent className="p-12">
                                 <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center">
@@ -261,6 +258,7 @@ export default function ProductDetailPage({ producto }: Props) {
                     </div>
 
                     <div className="mb-16">
+
                         <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl">
                             <CardContent className="p-12">
                                 <h3 className="text-xl font-bold text-gray-900 mb-10 flex items-center">

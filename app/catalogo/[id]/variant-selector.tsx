@@ -147,12 +147,13 @@ export default function VariantSelector({ opciones, variantes, onVariantChange }
             ))}
             {/* Info de variante seleccionada */}
             {selectedVariant && (
-                <div className=" border border-secondary/20 bg-background p-2 rounded-md w-full border-t">
+                <div className=" border border-secondary/20 bg-background p-6 rounded-md w-full border-t">
                     <div className="flex items-center justify-between gap-2">
                         <div className="p-2">
                             {selectedVariant.imagen && (
-                                <div className="w-40 h-40 mb-4 relative rounded-md overflow-hidden">
-                                    <Image fill alt="Imagen de variante" className="object-cover" src={selectedVariant.imagen.url || "/placeholder.svg"} />
+                                <div className="w-40 h-auto mb-4 relative rounded-md overflow-hidden">
+                                    <Image width={200} height={200}
+                                        alt="Imagen de variante" className="object-cover h-auto" src={selectedVariant.imagen.url || "/placeholder.svg"} />
                                 </div>
                             )}
                             <p className="font-medium">{selectedVariant.titulo}</p>
